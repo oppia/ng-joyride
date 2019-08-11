@@ -37,6 +37,10 @@
     width: 35em;
 }
 
+#pop-over-text {
+  font-size: 14px;
+  line-height: 1.846;
+}
 .ng-joyride .skip-class{
     padding-top: 7px;
 }
@@ -85,6 +89,6 @@
 }
 .btn.nextBtn.btn-sm{
     color: white;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
