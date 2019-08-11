@@ -21,8 +21,8 @@
 .pull-left {
     float: left !important;
 }
-.btn-link {
-    min-width: 50px;
+.btn.btn-link.skipBtn {
+    min-width: 70px;
     padding: 0px;
 }
 .ng-joyride-title{
@@ -67,17 +67,24 @@
 .sharp-borders{
     border-radius: 0px !important;
 }
-
+.joyride-popover-text {
+    font-size: 14px;
+    padding: 12px;
+}
 .ng-joyride h3.popover-title{
     font-size: 16px;
     line-height: 18px;
-    padding: 10px;
+    padding: 12px;
     margin: 0px;
 }
 .ng-joyride-modal.modal{
     z-index:9999 !important;
 }
-
 .ng-joyride .btn{
     border-radius: 0px !important;
+}
+.btn.nextBtn.btn-sm{
+    color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
