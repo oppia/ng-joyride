@@ -21,7 +21,7 @@
             "<div class=\"popover ng-joyride sharp-borders\" role=\"tooltip\"> <div class=\"arrow\"></div> <h3 class=\"popover-title sharp-borders\"></h3> <div class=\"popover-body container-fluid\"></div></div>"
         );
         $templateCache.put('ng-joyride-title-tplv1.html',
-            "<div id=\"ng-joyride-title-tplv1\"><div class=\"ng-joyride sharp-borders intro-banner\" style=\"\"><div class=\"popover-inner\"><h3 class=\"popover-header popover-title sharp-borders\">{{heading}}</h3><div class=\"popover-body container-fluid\"><div ng-bind-html=\"content\"></div><hr><div class=\"row\"><div class=\"col-md-4 skip-class\"><buttom class=\"btn btn-link skipBtn pull-left\"><i class=\"glyphicon glyphicon-ban-circle\"></i>&nbsp; Skip</button></div><div class=\"col-md-8\"><div class=\"pull-right\"><button class=\"prevBtn btn\" type=\"button\"><i class=\"glyphicon glyphicon-chevron-left\"></i>&nbsp;Previous</button> <button id=\"nextTitleBtn\" class=\"nextBtn btn btn-primary\" type=\"button\">Next&nbsp;<i class=\"glyphicon glyphicon-chevron-right\"></i></button></div></div></div></div></div></div></div>"
+            "<div id=\"ng-joyride-title-tplv1\"><div class=\"ng-joyride sharp-borders intro-banner\" style=\"\"><div class=\"popover-inner\"><h3 class=\"popover-header popover-title sharp-borders\">{{heading}}</h3><div class=\"popover-body container-fluid\"><div ng-bind-html=\"content\"></div><hr><div class=\"row\"><div class=\"col-md-4 skip-class\"><buttom class=\"btn btn-link skipBtn pull-left\"><i class=\"fas ng-fas fa-ban\"></i>&nbsp; Skip</button></div><div class=\"col-md-8\"><div class=\"pull-right\"><button class=\"prevBtn btn\" type=\"button\"><i class=\"fas ng-fas fa-angle-left\"></i>&nbsp;Previous</button> <button id=\"nextTitleBtn\" class=\"nextBtn btn btn-primary\" type=\"button\">Next&nbsp;<i class=\"fas ng-fas fa-angle-right\"></i></button></div></div></div></div></div></div></div>"
         );
     }]);
     drctv.factory('joyrideElement', ['$timeout', '$compile', '$sce', function ($timeout, $compile, $sce) {
@@ -43,11 +43,11 @@
                     '<hr>' +
                     '<div class=\"row\">' +
                     '<div class=\"col-md-4 center\">' +
-                    '<a class=\"skipBtn btn btn-sm\">Skip</a>' +
+                    '<a class=\"skipBtn btn btn-sm btn-link\"><i class="fas ng-fas fa-ban"></i>Skip</a>' +
                     '</div>' +
                     '<div class=\"col-md-8\">' +
                     '<div class=\"pull-right\">' +
-                    '<a id=\"prevBtn\" class=\"prevBtn btn btn-sm\">Previous</a>' +
+                    '<a id=\"prevBtn\" class=\"prevBtn btn btn-sm\"><i class=\"fas ng-fas fa-angle-left\"></i>Previous</a>' +
                     '<a id=\"nextBtn\" class=\"nextBtn btn btn-sm btn-primary\">' +
                     _generateTextForNext() +
                     '</a>' +
@@ -77,7 +77,7 @@
 
                     return 'Finish';
                 } else {
-                    return 'Next&nbsp;<i class=\"glyphicon glyphicon-chevron-right\">';
+                    return 'Next&nbsp;<i class=\"fas ng-fas fa-angle-right\"></i>';
 
                 }
             }
@@ -265,7 +265,7 @@
                 if (this.hasReachedEndFn()) {
                     $('.nextBtn').text(this.finishBtnText);
                 } else {
-                    $('.nextBtn').html(this.nextBtnText + "&nbsp;<i class='glyphicon glyphicon-chevron-right'>");
+                    $('.nextBtn').html(this.nextBtnText + "&nbsp;<i class=\"fas ng-fas fa-angle-right\"></i>");
                 }
 
                 $fkEl.slideDown(100, function () {
