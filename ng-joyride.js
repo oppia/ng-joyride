@@ -18,10 +18,10 @@
         globalHardcodedCurtainClass = "ng-curtain-class";
     drctv.run(['$templateCache', function ($templateCache) {
         $templateCache.put('ng-joyride-tplv1.html',
-            "<div class=\"popover ng-joyride sharp-borders\"> <div class=\"arrow\"></div>   <h3 class=\"popover-title sharp-borders\"></h3> <div class=\"popover-content container-fluid\"></div></div>"
+            "<div class=\"popover ng-joyride sharp-borders\" role=\"tooltip\"> <div class=\"arrow\"></div> <h3 class=\"popover-title sharp-borders\"></h3> <div class=\"popover-body container-fluid\"></div></div>"
         );
         $templateCache.put('ng-joyride-title-tplv1.html',
-            "<div id=\"ng-joyride-title-tplv1\"><div class=\"ng-joyride sharp-borders intro-banner\" style=\"\"><div class=\"popover-inner\"><h3 class=\"popover-title sharp-borders\">{{heading}}</h3><div class=\"popover-content container-fluid\"><div ng-bind-html=\"content\"></div><hr><div class=\"row\"><div class=\"col-md-4 skip-class\"><a class=\"skipBtn pull-left\" type=\"button\"><i class=\"glyphicon glyphicon-ban-circle\"></i>&nbsp; Skip</a></div><div class=\"col-md-8\"><div class=\"pull-right\"><button class=\"prevBtn btn\" type=\"button\"><i class=\"glyphicon glyphicon-chevron-left\"></i>&nbsp;Previous</button> <button id=\"nextTitleBtn\" class=\"nextBtn btn btn-primary\" type=\"button\">Next&nbsp;<i class=\"glyphicon glyphicon-chevron-right\"></i></button></div></div></div></div></div></div></div>"
+            "<div id=\"ng-joyride-title-tplv1\"><div class=\"ng-joyride sharp-borders intro-banner\" style=\"\"><div class=\"popover-inner\"><h3 class=\"popover-header popover-title sharp-borders\">{{heading}}</h3><div class=\"popover-body container-fluid\"><div ng-bind-html=\"content\"></div><hr><div class=\"row\"><div class=\"col-md-4 skip-class\"><buttom class=\"btn btn-link skipBtn pull-left\"><i class=\"glyphicon glyphicon-ban-circle\"></i>&nbsp; Skip</button></div><div class=\"col-md-8\"><div class=\"pull-right\"><button class=\"prevBtn btn\" type=\"button\"><i class=\"glyphicon glyphicon-chevron-left\"></i>&nbsp;Previous</button> <button id=\"nextTitleBtn\" class=\"nextBtn btn btn-primary\" type=\"button\">Next&nbsp;<i class=\"glyphicon glyphicon-chevron-right\"></i></button></div></div></div></div></div></div></div>"
         );
     }]);
     drctv.factory('joyrideElement', ['$timeout', '$compile', '$sce', function ($timeout, $compile, $sce) {
@@ -43,14 +43,14 @@
                     '<hr>' +
                     '<div class=\"row\">' +
                     '<div class=\"col-md-4 center\">' +
-                    '<a class=\"skipBtn pull-left\" type=\"button\">Skip</a>' +
+                    '<a class=\"skipBtn btn btn-sm\">Skip</a>' +
                     '</div>' +
                     '<div class=\"col-md-8\">' +
                     '<div class=\"pull-right\">' +
-                    '<button id=\"prevBtn\" class=\"prevBtn btn btn-xs\" type=\"button\">Previous</button>' +
-                    ' <button id=\"nextBtn\" class=\"nextBtn btn btn-xs btn-primary\" type=\"button\">' +
+                    '<a id=\"prevBtn\" class=\"prevBtn btn btn-sm\">Previous</a>' +
+                    '<a id=\"nextBtn\" class=\"nextBtn btn btn-sm btn-primary\">' +
                     _generateTextForNext() +
-                    '</button>' +
+                    '</a>' +
                     '</div>' +
                     '</div>' +
                     '</div>';
@@ -153,10 +153,16 @@
 
             }
 
+
             function _generatePopover(html) {
+                var static_popver_template = '<div class=\"popover ng-joyride sharp-borders\" role=\"tooltip\">' +
+                                             '  <div class=\"arrow\"></div>' +
+                                             '  <h3 class=\"popover-header popover-title sharp-borders\"></h3>' +
+                                             '  <div class=\"popover-body container-fluid\"></div>'+
+                                             '</div>';
                 $fkEl.popover({
                     title: this.heading,
-                    template: html,
+                    template: static_popver_template,
                     content: this.popoverTemplate,
                     html: true,
                     placement: this.placement,
@@ -181,7 +187,7 @@
             function _scrollToElement() {
 
                 $('html, body').animate({
-                    scrollTop: $fkEl.offset().top
+                    scrollTop: $(window).scrollTop()
                 }, 1000);
             }
 
@@ -191,15 +197,13 @@
                     $fkEl.removeClass(this.nonStaticClass);
                 }
 
-
-
             }
 
             function cleanUp() {
                 _unhighlightElement.call(this);
                 if($fkEl){
                     $fkEl.off("click",angular.bind(this,stopEvent));
-                    $($fkEl).popover('destroy');
+                    $($fkEl).popover('dispose');
                 }
                 unBindAdvanceOn(this);
 
@@ -475,7 +479,7 @@
                     var curtain;
                     $fkEl = $('#ng-curtain');
                     if (shouldDrop) {
-			// jQuery 3 support with length
+                        // jQuery 3 support with length
                         if (($fkEl.size && $fkEl.size() === 0) || $fkEl.length === 0) {
                             $('body').append('<div id="ng-curtain" class="'+globalHardcodedCurtainClass+'"></div>');
                             $fkEl = $('#ng-curtain');
