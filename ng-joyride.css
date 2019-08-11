@@ -58,7 +58,7 @@
 .sharp-borders{
     border-radius: 0px !important;
 }
-#joyride-popover-text {
+.joyride-popover-text {
     font-size: 14px;
     padding: 12px;
 }

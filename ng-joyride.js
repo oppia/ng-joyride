@@ -36,7 +36,7 @@
             }else{
                 this.popoverTemplate =
                     '<div class=\"row\">' +
-                    '<div id=\"pop-over-text joyride-popover-text\" class=\"col-md-12\">' +
+                    '<div id=\"pop-over-text\" class=\"col-md-12 joyride-popover-text\">' +
                     this.content +
                     '</div>' +
                     '</div>' +
