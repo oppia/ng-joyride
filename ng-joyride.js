@@ -260,7 +260,7 @@
                 var self = this;
                 this.scope.heading = this.heading;
                 this.scope.content = this.content;
-                $fkEl.html($compile(html.data)(this.scope));
+                $fkEl.html($compile(html)(this.scope));
 
                 if (this.hasReachedEndFn()) {
                     $('.nextBtn').text(this.finishBtnText);
@@ -415,7 +415,7 @@
                     if (!template) {
                         return '';
                     }
-                    return $http.get(template, { cache: $templateCache });
+                    return $q.when($templateCache.get(template)) || $http.get(template, { cache: true });
                 }
 
                 function goToNext(interval) {
