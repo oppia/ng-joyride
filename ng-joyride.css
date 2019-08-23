@@ -15,9 +15,7 @@
     z-index: 9998;
     display: none;
 }
-
 .ng-joyride-title{
-
     z-index: 9999;
     position:absolute;
     top:50%; left:33%;
@@ -27,25 +25,27 @@
     box-shadow:         0px 0px 28px 0px rgba(50, 50, 50, 0.75);
     width: 35em;
 }
-
-.ng-joyride .skip-class{
-    padding-top: 7px;
+.ng-joyride h3.popover-title{
+    font-size: 14px;
+    line-height: 18px;
+    padding: 12px;
+    margin: 0px;
 }
-
-.ng-joyride-element-non-static{
-    z-index: 9999 !important;
-    box-shadow:         0px 0px 28px 0px rgba(50, 50, 50, 0.75);
-}
-
-.ng-joyride-element-static{
-    position: relative;
-    z-index: 9999 !important;
-    background: #F3F3F3;
-    box-shadow:         0px 0px 28px 0px rgba(50, 50, 50, 0.75);
+.ng-joyride-modal.modal{
+    z-index:9999 !important;
 }
 .ng-joyride.popover{
     z-index: 9999;
-
+}
+#pop-over-text {
+  font-size: 14px;
+  line-height: 1.846;
+}
+.popover-body.container-fluid {
+    padding: 10px 15px 10px 15px;
+}
+.popover-body.container-fluid p {
+    line-height: 1.8;
 }
 .ng-joyride.popover .popover-content{
     width: 17em;
@@ -58,15 +58,45 @@
 .sharp-borders{
     border-radius: 0px !important;
 }
-
-.ng-joyride h3.popover-title{
-    line-height: 18px;
-    padding-bottom: 8px
+.joyride-popover-text {
+    font-size: 14px;
+    padding: 12px;
 }
-.ng-joyride-modal.modal{
-    z-index:9999 !important;
+.ng-joyride-element-non-static{
+    z-index: 9999 !important;
+    box-shadow:         0px 0px 28px 0px rgba(50, 50, 50, 0.75);
+}
+.ng-joyride-element-static{
+    position: relative;
+    z-index: 9999 !important;
+    background: #F3F3F3;
+    box-shadow:         0px 0px 28px 0px rgba(50, 50, 50, 0.75);
+}
+.btn.btn-link.skipBtn {
+    color: #007bff;
+    min-width: 70px;
+    padding: 0px;
+}
+.btn.btn-sm.btn-link.skipBtn {
+    color: #007bff;
+    min-width: 70px;
+    padding: 5px;
+}
+.ng-joyride .skip-class{
+    padding-top: 7px;
 }
 
 .ng-joyride .btn{
     border-radius: 0px !important;
+}
+.btn.nextBtn.btn-sm:hover {
+    color: white;
+}
+.btn.nextBtn.btn-sm{
+    color: white;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.ng-fas {
+    margin: 2px;
 }
